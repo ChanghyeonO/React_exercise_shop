@@ -1,17 +1,14 @@
 import { Button, Navbar, Container, Nav, Row, Col } from "react-bootstrap";
-import data from "../data";
-import React, { useState } from "react";
+import React from "react";
 
-const Main = () => {
-  const [shoes] = useState(data);
-
+const Main = props => {
   return (
     <>
       <div className="main-background"></div>
       <Container>
         <Row>
-          {shoes.map((a, i) => {
-            return <Card shoes={shoes[i]} i={i} />;
+          {props.shoes.map((a, i) => {
+            return <Card shoes={props.shoes[i]} i={i} />;
           })}
         </Row>
       </Container>

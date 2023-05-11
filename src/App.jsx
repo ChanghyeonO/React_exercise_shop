@@ -1,14 +1,17 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Navbar, Container, Nav, Row, Col } from "react-bootstrap";
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Main from "./routes/main";
 import Detail from "./routes/detail";
 import About from "./routes/about";
+import data from "./data";
 
 function App() {
+  const [shoes] = useState(data);
   const navigate = useNavigate();
+
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -47,8 +50,8 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/" element={<Main shoes={shoes} />} />
+        <Route path="/detail" element={<Detail shoes={shoes} />} />
         <Route path="/about" element={<About />}>
           <Route
             path="event/one"
