@@ -5,6 +5,7 @@ import React from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Main from "./routes/main";
 import Detail from "./routes/detail";
+import About from "./routes/about";
 
 function App() {
   const navigate = useNavigate();
@@ -34,7 +35,13 @@ function App() {
             >
               Detail
             </Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/About");
+              }}
+            >
+              About
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -42,6 +49,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/about" element={<About />}>
+          <Route
+            path="event/one"
+            element={<h4>첫 주문시 양배추즙 서비스~</h4>}
+          />
+          <Route
+            path="event/two"
+            element={<h4>생일 기념 쿠폰받기랍니다~</h4>}
+          />
+        </Route>
         <Route
           path="*"
           element={<h1>여긴 없는 페이지입니다. 돌아가세요.</h1>}
