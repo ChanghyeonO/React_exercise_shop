@@ -1,5 +1,5 @@
 import { Button, Navbar, Container, Nav, Row, Col } from "react-bootstrap";
-import data from "./data";
+import data from "../data";
 import React, { useState } from "react";
 
 const Main = () => {
